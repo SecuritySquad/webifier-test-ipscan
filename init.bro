@@ -7,7 +7,7 @@ event bro_init()
 	Log::add_filter(Conn::LOG, filter2);
 	local filter3: Log::Filter = [$name="port-only", $path="simple_conns_port",$include=set("id.resp_p")];
 	Log::add_filter(Conn::LOG, filter3);
-	local filter4: Log::Filter = [$name="port-only", $path="simple_conns_host",$include=set("id.resp_h")];
+	local filter4: Log::Filter = [$name="host-only", $path="simple_conns_host",$include=set("id.resp_h")];
 	Log::add_filter(Conn::LOG, filter4);
 	print "Bro successfully started!";
 }
