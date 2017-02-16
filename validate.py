@@ -1,4 +1,5 @@
 import sys
+import re
 
 def validate():
     fobj = open("simple_conns_host.log")
@@ -7,11 +8,11 @@ def validate():
     hosts = ["192.168.178.*","192.168.2.*"]
     for line in fobj:
         if line.rstrip().startswith('#') == False:
-            unknownhost = True
+            unknownhost = False
             for host in hosts:
                 p = re.compile(host)
                 if p.match(line.rstrip()):
-                    unknownhost = False
+                    unknownhost = True
             if unknownhost == True:
                 riskyhosts.append(line.rstrip())
     fobj.close()
