@@ -19,7 +19,7 @@ def validate():
     return riskyhosts
 
 def printresult(riskyhosts, result):
-     print prefix + ": {\"result\": \"" + result + "\", \"info\": {\"risky_hosts\": [" + ", ".join(riskyhosts) + "]}}"
+     print prefix + ": {\"result\":\"" + result + "\", \"info\": {\"risky_hosts\": [" + ", ".join(riskyhosts) + "]}}"
 
 
 
