@@ -5,7 +5,16 @@ bro -i eth0 local init.bro &
 # Wait for bro to start
 until pids=$(pidof bro)
 do
+    echo "waiting for process.."
     sleep 1
+done
+while :
+do
+  if [ -f loaded_scripts.log ]; then
+    echo "bro finished loading!"
+    break
+  fi
+  sleep 1
 done
 cd /
 phantomjs netsniff.js $URL >> /logs/temp.txt
