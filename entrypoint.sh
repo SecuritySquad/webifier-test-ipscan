@@ -17,7 +17,7 @@ do
   sleep 1
 done
 cd /
-phantomjs netsniff.js $URL >> /logs/temp.txt
+phantomjs --ignore-ssl-errors=true netsniff.js $URL >> /logs/temp.txt
 cd logs
 cat simple_conns.log
 python /validate.py $ID
